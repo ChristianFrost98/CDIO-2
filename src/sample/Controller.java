@@ -1,13 +1,19 @@
 package sample;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 
 public class Controller {
+
+    @FXML
+    private Label labelTest;
+
     public void btnGudPressed(ActionEvent actionEvent) {
-        System.out.println("GUD KNAPPEN KLIKKET!");
+        labelTest.setText("GUD KLIKKET");
     }
     public void btnBetterPressed(ActionEvent actionEvent) {
-        System.out.println("Wauw du er større end gud!");
+        labelTest.setText("NOGET ANDET KLIKKET");
     }
 }
 
