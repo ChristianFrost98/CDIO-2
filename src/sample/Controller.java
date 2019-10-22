@@ -8,7 +8,7 @@ import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 
-//Alt dette er bare lige for at lære at bruge JavaFX og Scene Builder..
+//Alt dette er bare lige for at lære at bruge JavaFX og Scene  Builder..
 public class Controller {
 
     @FXML
