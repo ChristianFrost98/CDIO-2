@@ -6,10 +6,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuBar;
 import javafx.scene.paint.Color;
 
 //Alt dette er bare lige for at lære at bruge JavaFX og Scene  Builder..
 public class Controller {
+
+    @FXML
+     private MenuBar forsjov;
 
     @FXML
     private Label labelTest;
@@ -24,6 +28,7 @@ public class Controller {
     public void btnGudPressed(ActionEvent actionEvent) {
         labelTest.setTextFill(colorPicker.getValue());
         labelTest.setText("GUD KLIKKET");
+
     }
 }
 
