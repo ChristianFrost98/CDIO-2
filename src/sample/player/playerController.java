@@ -1,4 +1,4 @@
-package sample;
+package sample.player;
 
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -7,7 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 
 //Alt dette er bare lige for at lære at bruge JavaFX og Scene  Builder..
-public class Controller {
+public class playerController {
 
     @FXML
     private Hyperlink testHyperlink;
