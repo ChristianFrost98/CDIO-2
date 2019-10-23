@@ -42,19 +42,19 @@ public class playerController {
         window.show();
     }
 
-    //spiller class'en fra terningespillet. point er ændret til money
+    //spiller class'en fra terningespillet. point er ændret til penge
     public class Spiller {
         private String name;
-        private int money;
+        private int penge;
 
         public int getMoney() {
-            return this.money;
+            return this.penge;
         }
-        public void addMoney(int money){
-            this.money += money;
+        public void addMoney(int penge){
+            this.penge += penge;
         }
-        public void setMoney(int money){
-            this.money = money;
+        public void setMoney(int penge){
+            this.penge = penge;
         }
 
         public String getName(){
