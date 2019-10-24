@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import sample.player.playerModel;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -42,9 +43,9 @@ public class playerController {
     //knap til at skifte scene
     public void btnStartPressed(ActionEvent event) throws IOException {
         //laver spiller 1 og 2 ud fra navnene i textboksene
-        Spiller s1 = new Spiller();
+        playerModel s1 = new playerModel();
         s1.setName(Spiller2TextFelt.getText());
-        Spiller s2 = new Spiller();
+        playerModel s2 = new playerModel();
         s2.setName(Spiller2TextFelt.getText());
 
         Parent gameViewParent = FXMLLoader.load(getClass().getResource("../game/gameView.fxml"));
@@ -56,27 +57,5 @@ public class playerController {
         window.show();
     }
 
-    //spiller class'en fra terningespillet. point er ændret til penge
-    public class Spiller {
-        private String name;
-        private int penge;
-
-        public int getMoney() {
-            return this.penge;
-        }
-        public void addMoney(int penge){
-            this.penge += penge;
-        }
-        public void setMoney(int penge){
-            this.penge = penge;
-        }
-
-        public String getName(){
-            return this.name;
-        }
-        public void setName(String name){
-            this.name = name;
-        }
-    }
 }
 

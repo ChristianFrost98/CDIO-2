@@ -22,4 +22,6 @@ public class playerModel {
         public void setName(String name){
             this.name = name;
         }
+
+
 }
