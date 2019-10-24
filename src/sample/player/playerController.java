@@ -1,5 +1,6 @@
 package sample.player;
 
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +8,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -22,11 +24,19 @@ public class playerController {
     private TextField Spiller2TextFelt;
 
     @FXML
+    private AnchorPane PlayerAnchorPane;
+
+    @FXML
     private Button btnStart;
     //btnGud bliver lige nu ikke brugt. Set btnGudPressed. I SceneBuilder der kan man enten sætte ID på noget eller kalde en funktion når man gør noget. (Se under code i Scene Builder)
 
     @FXML
     private Label startGameLabel;
+
+    public void changed(ObservableValue arg0, Object arg1, Object arg2)    {
+        double height = (double) arg2;
+
+    }
 
 
     //knap til at skifte scene
