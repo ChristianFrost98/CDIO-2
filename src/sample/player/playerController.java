@@ -52,6 +52,7 @@ public class playerController {
         Scene gameViewScene = new Scene(gameViewParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        window.setTitle("Game");
         window.hide();
         window.setScene(gameViewScene);
         window.show();
