@@ -19,6 +19,9 @@ public class Main extends Application {
         primaryStage.setTitle("Name players");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        primaryStage.setMinHeight(400);
+        primaryStage.setMinWidth(600);
+
     }
 
 
