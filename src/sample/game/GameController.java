@@ -1,34 +1,19 @@
 package sample.game;
 
-
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Stage;
-import sample.player.playerController;
-import sample.player.playerModel;
-import javax.swing.*;
-import java.awt.*;
+import sample.player.PlayerController;
+import sample.player.PlayerModel;
+
 import java.io.IOException;
 
-public class gameController {
-
+public class GameController {
     @FXML
     private Button throwDiceBtn;
-
     @FXML
     private Rectangle feltTo;
     @FXML
@@ -51,20 +36,22 @@ public class gameController {
     private Rectangle feltElve;
     @FXML
     private Rectangle feltTolv;
-
     @FXML
     private Label playerOneName;
     @FXML
     private Label playerTwoName;
 
+    private PlayerModel p1,p2;
 
     public void colorChangeBtn(ActionEvent event) throws IOException {
         feltTo.setFill(Color.RED);
     }
 
-    //public void Name(ActionEvent event) throws IOException {
-        //playerOneName.set
- //   }
+    public void setPlayers(PlayerModel p1,PlayerModel p2){
+        this.p1 = p1;
+        this.p2 = p2;
 
-
+        playerOneName.setText(p1.getName());
+        playerTwoName.setText(p2.getName());
+    }
 }

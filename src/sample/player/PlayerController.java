@@ -10,45 +10,42 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import sample.player.playerModel;
-
-import javax.swing.*;
+import sample.game.GameController;
 import java.io.IOException;
 
 //Alt dette er bare lige for at lære at bruge JavaFX og Scene  Builder..
-public class playerController {
-
+public class PlayerController {
     @FXML
     private TextField Spiller1TextFelt;
-
     @FXML
     private TextField Spiller2TextFelt;
-
     @FXML
     private AnchorPane PlayerAnchorPane;
-
     @FXML
     private Button btnStart;
     //btnGud bliver lige nu ikke brugt. Set btnGudPressed. I SceneBuilder der kan man enten sætte ID på noget eller kalde en funktion når man gør noget. (Se under code i Scene Builder)
-
     @FXML
     private Label startGameLabel;
 
     public void changed(ObservableValue arg0, Object arg1, Object arg2)    {
         double height = (double) arg2;
-
     }
-
 
     //knap til at skifte scene
     public void btnStartPressed(ActionEvent event) throws IOException {
         //laver spiller 1 og 2 ud fra navnene i textboksene
-        playerModel s1 = new playerModel();
-        s1.setName(Spiller2TextFelt.getText());
-        playerModel s2 = new playerModel();
+        PlayerModel s1 = new PlayerModel();
+        s1.setName(Spiller1TextFelt.getText());
+        PlayerModel s2 = new PlayerModel();
         s2.setName(Spiller2TextFelt.getText());
 
-        Parent gameViewParent = FXMLLoader.load(getClass().getResource("../game/gameView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../game/gameView.fxml"));
+        Parent gameViewParent = loader.load();
+        GameController gameController = loader.<GameController>getController();
+
+        // Navn på næste side
+        gameController.setPlayers(s1,s2);
+
         Scene gameViewScene = new Scene(gameViewParent);
 
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -57,6 +54,5 @@ public class playerController {
         window.setScene(gameViewScene);
         window.show();
     }
-
 }
 

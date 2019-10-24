@@ -1,7 +1,7 @@
 package sample.die;
 import java.util.Random;
 
-public class dieModel {
+public class DieModel {
     private int dice;
 
     public void rollDice() {
