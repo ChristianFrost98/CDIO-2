@@ -10,10 +10,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import sample.player.playerController;
 
 import javax.swing.*;
 import java.io.IOException;
 
 public class gameController {
+
+    @FXML
+    private Button throwDiceBtn;
+
+    public void colorChangeBtn(ActionEvent event) throws IOException {
+
+    }
+
 
 }
