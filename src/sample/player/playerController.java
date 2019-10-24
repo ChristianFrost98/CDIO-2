@@ -25,6 +25,10 @@ public class playerController {
     private Button btnStart;
     //btnGud bliver lige nu ikke brugt. Set btnGudPressed. I SceneBuilder der kan man enten sætte ID på noget eller kalde en funktion når man gør noget. (Se under code i Scene Builder)
 
+    @FXML
+    private Label startGameLabel;
+
+
     //knap til at skifte scene
     public void btnStartPressed(ActionEvent event) throws IOException {
         //laver spiller 1 og 2 ud fra navnene i textboksene
