@@ -15,27 +15,7 @@ public class GameController {
     @FXML
     private Button throwDiceBtn;
     @FXML
-    private Rectangle feltTo;
-    @FXML
-    private Rectangle feltTre;
-    @FXML
-    private Rectangle feltFire;
-    @FXML
-    private Rectangle feltFem;
-    @FXML
-    private Rectangle feltSeks;
-    @FXML
-    private Rectangle feltSyv;
-    @FXML
-    private Rectangle feltOtte;
-    @FXML
-    private Rectangle feltNi;
-    @FXML
-    private Rectangle feltTi;
-    @FXML
-    private Rectangle feltElve;
-    @FXML
-    private Rectangle feltTolv;
+    private Label feltTolv;
     @FXML
     private Label playerOneName;
     @FXML
@@ -43,10 +23,10 @@ public class GameController {
 
     private PlayerModel p1,p2;
 
-    public void colorChangeBtn(ActionEvent event) throws IOException {
-        feltTo.setFill(Color.RED);
+/*    public void colorChangeBtn(ActionEvent event) throws IOException {
+        feltTolv.setFill(Color.RED);
     }
-
+*/
     public void setPlayers(PlayerModel p1,PlayerModel p2){
         this.p1 = p1;
         this.p2 = p2;

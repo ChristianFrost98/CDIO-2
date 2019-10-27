@@ -15,8 +15,8 @@
             <Group>
                <children>
                   <Button fx:id="btnStart" layoutX="226.0" layoutY="260.0" mnemonicParsing="false" onAction="#btnStartPressed" prefHeight="26.0" prefWidth="149.0" text="Start spil" />
-                  <TextField fx:id="Spiller2TextFelt" layoutX="99.0" layoutY="188.0" promptText="player 2" />
-                  <TextField fx:id="Spiller1TextFelt" layoutX="351.0" layoutY="188.0" promptText="player 1" />
+                  <TextField fx:id="Spiller2TextFelt" layoutX="337.0" layoutY="194.0" promptText="player 2" />
+                  <TextField fx:id="Spiller1TextFelt" layoutX="113.0" layoutY="194.0" promptText="player 1" />
                   <Label fx:id="startGameLabel" layoutX="99.0" layoutY="37.0" text="Terningsspil 2.0" textFill="WHITE">
                      <font>
                         <Font name="Calibri Light" size="64.0" />
