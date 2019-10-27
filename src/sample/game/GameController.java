@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.util.converter.IntegerStringConverter;
 import sample.player.PlayerController;
 import sample.player.PlayerModel;
 
@@ -20,6 +21,10 @@ public class GameController {
     private Label playerOneName;
     @FXML
     private Label playerTwoName;
+    @FXML
+    private Label playerOneMoney;
+    @FXML
+    private Label playerTwoMoney;
 
     private PlayerModel p1,p2;
 
@@ -33,5 +38,8 @@ public class GameController {
 
         playerOneName.setText(p1.getName());
         playerTwoName.setText(p2.getName());
+
+        playerOneMoney.setText(Integer.toString(p1.getMoney()));
+        playerTwoMoney.setText(Integer.toString(p2.getMoney()));
     }
 }
