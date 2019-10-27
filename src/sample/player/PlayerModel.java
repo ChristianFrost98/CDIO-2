@@ -14,7 +14,6 @@ public class PlayerModel {
         public void setMoney(int money){
             this.money = money;
         }
-
         public String getName(){
             return this.name;
         }
