@@ -40,47 +40,52 @@
                         <Font name="System Bold" size="29.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="-326.0" layoutY="-79.0" prefHeight="64.0" prefWidth="61.0" style="-fx-background-color: #04ff00bd;" text="11" textFill="WHITE">
+                  <Label fx:id="feltElve" alignment="CENTER" layoutX="-326.0" layoutY="-79.0" prefHeight="64.0" prefWidth="61.0" text="11" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="29.0" />
                      </font>
                   </Label>
-                  <Label layoutX="-153.0" layoutY="-232.0" text="9" textFill="WHITE">
+                  <Label fx:id="feltTi" layoutX="-228.0" layoutY="-232.0" text="10" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="29.0" />
                      </font>
                   </Label>
-                  <Label layoutX="-83.0" layoutY="-232.0" text="8" textFill="WHITE">
+                  <Label fx:id="feltNi" layoutX="-143.0" layoutY="-222.0" text="9" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="29.0" />
                      </font>
                   </Label>
-                  <Label layoutX="-11.0" layoutY="-232.0" text="7" textFill="WHITE">
+                  <Label fx:id="feltOtte" layoutX="-83.0" layoutY="-232.0" text="8" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="29.0" />
                      </font>
                   </Label>
-                  <Label layoutX="-232.0" layoutY="-58.0" text="6" textFill="WHITE">
+                  <Label fx:id="feltSyv" layoutX="-11.0" layoutY="-232.0" text="7" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="29.0" />
                      </font>
                   </Label>
-                  <Label layoutX="-19.0" layoutY="-138.0" text="5" textFill="WHITE">
+                  <Label fx:id="feltSeks" layoutX="-232.0" layoutY="-58.0" text="6" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="29.0" />
                      </font>
                   </Label>
-                  <Label layoutX="-11.0" layoutY="-58.0" text="4" textFill="WHITE">
+                  <Label fx:id="feltFem" layoutX="-19.0" layoutY="-138.0" text="5" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="29.0" />
                      </font>
                   </Label>
-                  <Label layoutX="-91.0" layoutY="-58.0" text="3" textFill="WHITE">
+                  <Label fx:id="feltFire" layoutX="-1.0" layoutY="-48.0" text="4" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="29.0" />
                      </font>
                   </Label>
-                  <Label layoutX="-145.0" layoutY="-58.0" text="2" textFill="WHITE">
+                  <Label fx:id="feltTre" layoutX="-91.0" layoutY="-58.0" text="3" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="29.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="feltTo" layoutX="-145.0" layoutY="-58.0" text="2" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="29.0" />
                      </font>
@@ -96,12 +101,7 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </Button>
-                  <Label layoutX="-228.0" layoutY="-232.0" text="10" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="29.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="-239.0" layoutY="-132.0" prefHeight="32.0" prefWidth="187.0" text="Felt Resultat" textAlignment="CENTER" textFill="WHITE" />
+                  <Label fx:id="resultatTekstFelt" layoutX="-211.0" layoutY="-111.0" prefHeight="32.0" prefWidth="187.0" text="Felt Resultat" textAlignment="CENTER" textFill="WHITE" />
                   <Label layoutX="-211.0" layoutY="-249.0" text="Current Player:" textFill="WHITE" />
                   <Label fx:id="currentPlayerLabel" layoutX="-128.0" layoutY="-249.0" text="Player1" textFill="WHITE" />
                </children>
