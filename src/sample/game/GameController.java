@@ -78,27 +78,27 @@ public class GameController {
             case 2:
                 currentPlayer.addMoney(250);
                 feltTo.setStyle("-fx-background-color:GREEN;");
-                resultatTekstFelt.setText("Du reddede prinsessen i tårnet, og kongen giver dig 250 mønter!");
+                resultatTekstFelt.setText("Du reddede prinsessen i tårnet, \n og kongen giver dig 250 mønter!");
                 break;
             case 3:
                 currentPlayer.addMoney(-100);
                 feltTre.setStyle("-fx-background-color:GREEN;");
-                resultatTekstFelt.setText("Du faldt ned i et krater, og tabte 100 mønter derned");
+                resultatTekstFelt.setText("Du faldt ned i et krater,\n og tabte 100 mønter derned");
                 break;
             case 4:
                 currentPlayer.addMoney(100);
                 feltFire.setStyle("-fx-background-color:GREEN;");
-                resultatTekstFelt.setText("Portene til Paladset åbner for dig, og som velkomst får du 100 mønter");
+                resultatTekstFelt.setText("Portene til Paladset åbner for dig,\n og som velkomst får du 100 mønter");
                 break;
             case 5:
                 currentPlayer.addMoney(-20);
                 feltFem.setStyle("-fx-background-color:GREEN;");
-                resultatTekstFelt.setText("Du er faret vildt i den kolde ørken, og bruger 20 mønter på at holde varmen");
+                resultatTekstFelt.setText("Du er faret vildt i den kolde ørken,\n og bruger 20 mønter på at \n holde varmen");
                 break;
             case 6:
                 currentPlayer.addMoney(180);
                 feltSeks.setStyle("-fx-background-color:GREEN;");
-                resultatTekstFelt.setText("Du finder sikkerhed i en by omringet af mure, +180");
+                resultatTekstFelt.setText("Du finder sikkerhed i en by \n omringet af mure, +180");
                 break;
             case 7:
                 currentPlayer.addMoney(0);
@@ -118,23 +118,23 @@ public class GameController {
             case 10:
                 currentPlayer.addMoney(-80);
                 feltTi.setStyle("-fx-background-color:GREEN;");
-                resultatTekstFelt.setText("Du bliver overfaldet af ulve-muren, de stjæler 80 mønter men du får en ekstra tur");
+                resultatTekstFelt.setText("Du bliver overfaldet af ulve-muren,\n de stjæler 80 mønter men du får \n en ekstra tur");
                 break;
             case 11:
                 currentPlayer.addMoney(-50);
                 feltElve.setStyle("-fx-background-color:GREEN;");
-                resultatTekstFelt.setText("Du bliver smidt i “hullet” og mister samtidigt 50 mønter");
+                resultatTekstFelt.setText("Du bliver smidt i “hullet” \n og mister samtidigt 50 mønter");
                 break;
             case 12:
                 currentPlayer.addMoney(650);
                 feltTolv.setStyle("-fx-background-color:GREEN;");
-                resultatTekstFelt.setText("Du fandt en guldmine og får 650 mønter!");
+                resultatTekstFelt.setText("Du fandt en guldmine og \n får 650 mønter!");
                 break;
         }
         playerOneMoney.setText(Integer.toString(p1.getMoney()));
         playerTwoMoney.setText(Integer.toString(p2.getMoney()));
         if (p1.getMoney()>=3000 || p2.getMoney()>=3000){
-            resultatTekstFelt.setText("GAMEOVER...Vinderen er: " + currentPlayer);
+            resultatTekstFelt.setText("GAMEOVER...Vinderen er: " + currentPlayer.getName());
         }
     }
 
@@ -163,17 +163,17 @@ public class GameController {
         GameController.this.setCurrentPlayerName();
     }
     public void resetColor(){
-        feltTo.setStyle("-fx-background-color:rgba(0,0,0,0);");
-        feltTre.setStyle("-fx-background-color:rgba(0,0,0,0);");
-        feltFire.setStyle("-fx-background-color:rgba(0,0,0,0);");
-        feltFem.setStyle("-fx-background-color:rgba(0,0,0,0);");
-        feltSeks.setStyle("-fx-background-color:rgba(0,0,0,0);");
-        feltSyv.setStyle("-fx-background-color:rgba(0,0,0,0);");
-        feltOtte.setStyle("-fx-background-color:rgba(0,0,0,0);");
-        feltNi.setStyle("-fx-background-color:rgba(0,0,0,0);");
-        feltTi.setStyle("-fx-background-color:rgba(0,0,0,0);");
-        feltElve.setStyle("-fx-background-color:rgba(0,0,0,0);");
-        feltTolv.setStyle("-fx-background-color:rgba(0,0,0,0);");
+        feltTo.setStyle("-fx-background-color:rgba(255,0,0,0.75);");
+        feltTre.setStyle("-fx-background-color:rgb(0,0,0,0.5);");
+        feltFire.setStyle("-fx-background-color:rgb(255,0,0,0.75);");
+        feltFem.setStyle("-fx-background-color:rgba(0,0,0,0.5);");
+        feltSeks.setStyle("-fx-background-color:rgb(255,0,0,0.75);");
+        feltSyv.setStyle("-fx-background-color:rgba(0,0,0,0.5);");
+        feltOtte.setStyle("-fx-background-color:rgb(255,0,0,0.75);");
+        feltNi.setStyle("-fx-background-color:rgba(0,0,0,0.5);");
+        feltTi.setStyle("-fx-background-color:rgb(255,0,0,0.75);");
+        feltElve.setStyle("-fx-background-color:rgba(0,0,0,0.5);");
+        feltTolv.setStyle("-fx-background-color:rgb(255,0,0,0.75);");
     }
 
 }

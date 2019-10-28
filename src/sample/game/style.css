@@ -2,3 +2,8 @@
     -fx-background-image: url("DieBackground.jpg");
     -fx-background-size: 100% 100%;
 }
+
+.buttonBackground{
+    -fx-background-image: url("terninger.png");
+    -fx-background-size: 100% 100%;
+}
