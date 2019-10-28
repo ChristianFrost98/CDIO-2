@@ -8,6 +8,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.converter.IntegerStringConverter;
+import sample.account.AccountModel;
 import sample.die.DieModel;
 import sample.player.PlayerController;
 import sample.player.PlayerModel;
@@ -55,10 +56,15 @@ public class GameController {
     @FXML
     private Label currentPlayerLabel;
 
-    private PlayerModel p1,p2;
+    private GameModel game;
     private PlayerModel currentPlayer;
+    private AccountModel currentAccount;
 
     public void throwDiceBtn(ActionEvent event) throws IOException {
+        if(game.isGameOver()){
+            return;
+        }
+
         setCurrentPlayerName();
         resetColor();
 
@@ -70,97 +76,103 @@ public class GameController {
         dice2.rollDice();
         int dice2Number = dice2.getDice();
 
-        if(dice1Number != dice2Number){
-            GameController.this.setNextPlayer();
-        }
+        int sumDice = dice1Number + dice2Number;
 
-        switch (dice1Number + dice2Number) {
+        switch (sumDice) {
             case 2:
-                currentPlayer.addMoney(250);
+                currentAccount.addBalance(250);
                 feltTo.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du reddede prinsessen i tårnet, \n og kongen giver dig 250 mønter!");
                 break;
             case 3:
-                currentPlayer.addMoney(-100);
+                currentAccount.addBalance(-100);
                 feltTre.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du faldt ned i et krater,\n og tabte 100 mønter derned");
                 break;
             case 4:
-                currentPlayer.addMoney(100);
+                currentAccount.addBalance(100);
                 feltFire.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Portene til Paladset åbner for dig,\n og som velkomst får du 100 mønter");
                 break;
             case 5:
-                currentPlayer.addMoney(-20);
+                currentAccount.addBalance(-20);
                 feltFem.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du er faret vildt i den kolde ørken,\n og bruger 20 mønter på at \n holde varmen");
                 break;
             case 6:
-                currentPlayer.addMoney(180);
+                currentAccount.addBalance(180);
                 feltSeks.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du finder sikkerhed i en by \n omringet af mure, +180");
                 break;
             case 7:
-                currentPlayer.addMoney(0);
+                //currentAccount.addBalance(0);
                 feltSyv.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du overnatter i et kloster, +0");
                 break;
             case 8:
-                currentPlayer.addMoney(-70);
+                currentAccount.addBalance(-70);
                 feltOtte.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du falder ned i en sort grotte, -70");
                 break;
             case 9:
-                currentPlayer.addMoney(60);
+                currentAccount.addBalance(60);
                 feltNi.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du finder ly i en hytte i bjergene, +60");
                 break;
             case 10:
-                currentPlayer.addMoney(-80);
+                currentAccount.addBalance(-80);
                 feltTi.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du bliver overfaldet af ulve-muren,\n de stjæler 80 mønter men du får \n en ekstra tur");
                 break;
             case 11:
-                currentPlayer.addMoney(-50);
+                currentAccount.addBalance(-50);
                 feltElve.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du bliver smidt i “hullet” \n og mister samtidigt 50 mønter");
                 break;
             case 12:
-                currentPlayer.addMoney(650);
+                currentAccount.addBalance(650);
                 feltTolv.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du fandt en guldmine og \n får 650 mønter!");
                 break;
         }
-        playerOneMoney.setText(Integer.toString(p1.getMoney()));
-        playerTwoMoney.setText(Integer.toString(p2.getMoney()));
-        if (p1.getMoney()>=3000 || p2.getMoney()>=3000){
-            resultatTekstFelt.setText("GAMEOVER...Vinderen er: " + currentPlayer.getName());
-        }
+        updateBalanceView();
+
+        if(sumDice != 10) setNextPlayer();
     }
 
     public void GameController(PlayerModel p1,PlayerModel p2){
-        this.p1 = p1;
-        this.p2 = p2;
-        this.currentPlayer = this.p1;
-        playerOneName.setText(p1.getName());
-        playerTwoName.setText(p2.getName());
+        game = new GameModel(p1, p2);
+
+        currentPlayer = game.p1;
+        currentAccount = game.a1;
+
+        playerOneName.setText(game.p1.getName());
+        playerTwoName.setText(game.p2.getName());
 
         setCurrentPlayerName();
+        updateBalanceView();
+    }
 
-        playerOneMoney.setText(Integer.toString(p1.getMoney()));
-        playerTwoMoney.setText(Integer.toString(p2.getMoney()));
+    private void updateBalanceView(){
+        playerOneMoney.setText(game.a1.getBalanceString());
+        playerTwoMoney.setText(game.a2.getBalanceString());
+        if (currentAccount.getBalance()>=3000){
+            resultatTekstFelt.setText("GAMEOVER...Vinderen er: " + currentPlayer.getName());
+            game.endGame();
+        }
     }
 
     private void setCurrentPlayerName(){
-        currentPlayerLabel.setText(this.currentPlayer.getName());
+        currentPlayerLabel.setText(currentPlayer.getName());
     }
     private void setNextPlayer(){
-        if (GameController.this.currentPlayer.getName().equals(GameController.this.p1.getName())) {
-            GameController.this.currentPlayer = GameController.this.p2;
+        if (currentPlayer.getName().equals(game.p1.getName())) {
+            currentPlayer = game.p2;
+            currentAccount = game.a2;
         } else {
-            GameController.this.currentPlayer = GameController.this.p1;
+            currentPlayer = game.p1;
+            currentAccount = game.a1;
         }
-        GameController.this.setCurrentPlayerName();
     }
     public void resetColor(){
         feltTo.setStyle("-fx-background-color:rgba(255,0,0,0.75);");

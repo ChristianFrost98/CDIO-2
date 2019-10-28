@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import sample.account.AccountModel;
 import sample.game.GameController;
 import java.io.IOException;
 
