@@ -15,7 +15,7 @@
          <children>
             <Group>
                <children>
-                  <Label fx:id="playerTwoMoney" layoutX="-175.0" layoutY="-44.0" text="Penge" textFill="#1907eb">
+                  <Label fx:id="playerTwoMoney" layoutX="-168.0" layoutY="-44.0" text="Penge" textFill="#1907eb">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -25,7 +25,7 @@
                         <Font size="22.0" />
                      </font>
                   </Label>
-                  <Label fx:id="playerTwoName" layoutX="-202.0" layoutY="-90.0" prefWidth="115.0" text="Player 2:" textFill="#1a00eb">
+                  <Label fx:id="playerTwoName" layoutX="-193.0" layoutY="-90.0" prefWidth="115.0" text="Player 2:" textFill="#1a00eb">
                      <font>
                         <Font size="31.0" />
                      </font>
