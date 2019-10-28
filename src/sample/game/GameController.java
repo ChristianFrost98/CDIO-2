@@ -166,7 +166,7 @@ public class GameController {
         currentPlayerLabel.setText(currentPlayer.getName());
     }
     private void setNextPlayer(){
-        if (currentPlayer.getName().equals(game.p1.getName())) {
+        if(currentPlayer.getId() == game.p1.getId()) {
             currentPlayer = game.p2;
             currentAccount = game.a2;
         } else {

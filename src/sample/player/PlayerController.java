@@ -35,10 +35,8 @@ public class PlayerController {
     //knap til at skifte scene
     public void btnStartPressed(ActionEvent event) throws IOException {
         //laver spiller 1 og 2 ud fra navnene i textboksene
-        PlayerModel p1 = new PlayerModel();
-        p1.setName(Spiller1TextFelt.getText());
-        PlayerModel p2 = new PlayerModel();
-        p2.setName(Spiller2TextFelt.getText());
+        PlayerModel p1 = new PlayerModel(1, Spiller1TextFelt.getText());
+        PlayerModel p2 = new PlayerModel(2, Spiller2TextFelt.getText());
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../game/gameView.fxml"));
         Parent gameViewParent = loader.load();
