@@ -1,4 +1,4 @@
-package sample.player;
+package sample.playerinterface;
 
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -10,12 +10,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import sample.account.AccountModel;
-import sample.game.GameController;
+import sample.gameinterface.GameInterfaceController;
 import java.io.IOException;
 
 //Alt dette er bare lige for at lære at bruge JavaFX og Scene  Builder..
-public class PlayerController {
+public class PlayerInterfaceController {
     @FXML
     private TextField Spiller1TextFelt;
     @FXML
@@ -34,19 +33,12 @@ public class PlayerController {
 
     //knap til at skifte scene
     public void btnStartPressed(ActionEvent event) throws IOException {
-        //laver spiller 1 og 2 ud fra navnene i textboksene
-        PlayerModel p1 = new PlayerModel(1, Spiller1TextFelt.getText());
-        PlayerModel p2 = new PlayerModel(2, Spiller2TextFelt.getText());
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../game/gameView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../gameinterface/gameInterfaceView.fxml"));
         Parent gameViewParent = loader.load();
-        GameController gameController = loader.<GameController>getController();
-
-        // Navn på næste side
-        gameController.GameController(p1,p2);
+        GameInterfaceController gameInterfaceController = loader.<GameInterfaceController>getController();
+        gameInterfaceController.run(Spiller1TextFelt.getText(), Spiller2TextFelt.getText());
 
         Scene gameViewScene = new Scene(gameViewParent);
-
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
         window.setTitle("Game");
         window.hide();

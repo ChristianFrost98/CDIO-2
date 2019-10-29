@@ -3,18 +3,7 @@ package sample.account;
 import sample.player.PlayerModel;
 
 public class AccountModel {
-    private PlayerModel player;
-
     private int balance = 1000;
-
-    public AccountModel(PlayerModel player){
-        //Denne klasse burde være abstract og så ville PlayerModel arve fra denne klasse i stedet..
-        this.player = player;
-    }
-
-    public PlayerModel getPlayer(){
-        return player;
-    }
 
     public int getBalance() {
         return this.balance;

@@ -7,9 +7,16 @@ public class PlayerModel {
     private int id;
     private String name;
 
-    public PlayerModel(int id, String name){
+    private AccountModel accountModel;
+
+    public PlayerModel(int id, String name, AccountModel accountModel){
         this.id = id;
         this.name = name;
+        this.accountModel = accountModel;
+    }
+
+    public AccountModel getAccountModel(){
+        return accountModel;
     }
 
     public String getName(){
