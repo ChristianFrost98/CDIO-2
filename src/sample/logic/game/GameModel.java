@@ -1,7 +1,6 @@
-package sample.game;
+package sample.logic.game;
 
-import sample.account.AccountModel;
-import sample.player.PlayerModel;
+import sample.logic.player.PlayerModel;
 
 public class GameModel {
     private boolean gameOver;

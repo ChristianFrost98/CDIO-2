@@ -1,6 +1,4 @@
-package sample.account;
-
-import sample.player.PlayerModel;
+package sample.logic.account;
 
 public class AccountModel {
     private int balance = 1000;

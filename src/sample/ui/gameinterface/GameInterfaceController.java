@@ -1,13 +1,13 @@
-package sample.gameinterface;
+package sample.ui.gameinterface;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import sample.account.AccountModel;
-import sample.die.DieModel;
-import sample.game.GameModel;
-import sample.player.PlayerModel;
+import sample.logic.account.AccountModel;
+import sample.logic.die.DieModel;
+import sample.logic.game.GameModel;
+import sample.logic.player.PlayerModel;
 
 import java.io.IOException;
 

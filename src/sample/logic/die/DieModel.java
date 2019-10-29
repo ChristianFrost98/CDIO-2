@@ -1,4 +1,4 @@
-package sample.die;
+package sample.logic.die;
 import java.util.Random;
 
 public class DieModel {

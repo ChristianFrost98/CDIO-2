@@ -1,6 +1,6 @@
-package sample.player;
+package sample.logic.player;
 
-import sample.account.AccountModel;
+import sample.logic.account.AccountModel;
 
 //Den optimale løsning ville nok være at AccountModel arvede fra PlayerModel..
 public class PlayerModel {

@@ -1,4 +1,4 @@
-package sample.playerinterface;
+package sample.ui.playerinterface;
 
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import sample.gameinterface.GameInterfaceController;
+import sample.ui.gameinterface.GameInterfaceController;
 import java.io.IOException;
 
 //Alt dette er bare lige for at lære at bruge JavaFX og Scene  Builder..
