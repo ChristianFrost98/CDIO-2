@@ -50,7 +50,6 @@ public class GameInterfaceController {
     private Label currentPlayerLabel;
 
     private GameModel game;
-    private PlayerModel currentPlayer;
 
     public void throwDiceBtn(ActionEvent event) throws IOException {
         if(game.isGameOver()){
@@ -72,27 +71,27 @@ public class GameInterfaceController {
 
         switch (sumDice) {
             case 2:
-                currentPlayer.getAccountModel().addBalance(250);
+                game.getCurrentPlayer().getAccountModel().addBalance(250);
                 feltTo.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du reddede prinsessen i tårnet, \n og kongen giver dig 250 mønter!");
                 break;
             case 3:
-                currentPlayer.getAccountModel().addBalance(-100);
+                game.getCurrentPlayer().getAccountModel().addBalance(-100);
                 feltTre.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du faldt ned i et krater,\n og tabte 100 mønter derned");
                 break;
             case 4:
-                currentPlayer.getAccountModel().addBalance(100);
+                game.getCurrentPlayer().getAccountModel().addBalance(100);
                 feltFire.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Portene til Paladset åbner for dig,\n og som velkomst får du 100 mønter");
                 break;
             case 5:
-                currentPlayer.getAccountModel().addBalance(-20);
+                game.getCurrentPlayer().getAccountModel().addBalance(-20);
                 feltFem.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du er faret vildt i den kolde ørken,\n og bruger 20 mønter på at \n holde varmen");
                 break;
             case 6:
-                currentPlayer.getAccountModel().addBalance(180);
+                game.getCurrentPlayer().getAccountModel().addBalance(180);
                 feltSeks.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du finder sikkerhed i en by \n omringet af mure, +180");
                 break;
@@ -101,27 +100,27 @@ public class GameInterfaceController {
                 resultatTekstFelt.setText("Du overnatter i et kloster, +0");
                 break;
             case 8:
-                currentPlayer.getAccountModel().addBalance(-70);
+                game.getCurrentPlayer().getAccountModel().addBalance(-70);
                 feltOtte.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du falder ned i en sort grotte, -70");
                 break;
             case 9:
-                currentPlayer.getAccountModel().addBalance(60);
+                game.getCurrentPlayer().getAccountModel().addBalance(60);
                 feltNi.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du finder ly i en hytte i bjergene, +60");
                 break;
             case 10:
-                currentPlayer.getAccountModel().addBalance(-80);
+                game.getCurrentPlayer().getAccountModel().addBalance(-80);
                 feltTi.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du bliver overfaldet af ulve-muren,\n de stjæler 80 mønter men du får \n en ekstra tur");
                 break;
             case 11:
-                currentPlayer.getAccountModel().addBalance(-50);
+                game.getCurrentPlayer().getAccountModel().addBalance(-50);
                 feltElve.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du bliver smidt i “hullet” \n og mister samtidigt 50 mønter");
                 break;
             case 12:
-                currentPlayer.getAccountModel().addBalance(650);
+                game.getCurrentPlayer().getAccountModel().addBalance(650);
                 feltTolv.setStyle("-fx-background-color:GREEN;");
                 resultatTekstFelt.setText("Du fandt en guldmine og \n får 650 mønter!");
                 break;
@@ -132,22 +131,22 @@ public class GameInterfaceController {
     }
 
     private void updateBalanceView(){
-        playerOneMoney.setText(game.p1.getAccountModel().toString());
-        playerTwoMoney.setText(game.p2.getAccountModel().toString());
-        if (currentPlayer.getAccountModel().getBalance()>=3000){
-            resultatTekstFelt.setText("GAMEOVER...Vinderen er: " + currentPlayer.getName());
+        playerOneMoney.setText(game.getPlayer1().getAccountModel().toString());
+        playerTwoMoney.setText(game.getPlayer2().getAccountModel().toString());
+        if (game.getCurrentPlayer().getAccountModel().getBalance()>=3000){
+            resultatTekstFelt.setText("GAMEOVER...Vinderen er: " + game.getCurrentPlayer().getName());
             game.endGame();
         }
     }
 
     private void setCurrentPlayerName(){
-        currentPlayerLabel.setText(currentPlayer.getName());
+        currentPlayerLabel.setText(game.getCurrentPlayer().getName());
     }
     private void setNextPlayer(){
-        if(currentPlayer.getId() == game.p1.getId()) {
-            currentPlayer = game.p2;
+        if(game.getCurrentPlayer().getId() == game.getPlayer1().getId()) {
+            game.setCurrentPlayer(game.getPlayer2());
         } else {
-            currentPlayer = game.p1;
+            game.setCurrentPlayer(game.getPlayer1());
         }
     }
     public void resetColor(){
@@ -168,10 +167,9 @@ public class GameInterfaceController {
     public void run(String p1name, String p2name){
         game = new GameModel(new PlayerModel(1, p1name, new AccountModel()), new PlayerModel(2, p2name, new AccountModel()));
 
-        currentPlayer = game.p1;
-
-        playerOneName.setText(game.p1.getName());
-        playerTwoName.setText(game.p2.getName());
+        game.setCurrentPlayer(game.getPlayer1());
+        playerOneName.setText(game.getPlayer1().getName());
+        playerTwoName.setText(game.getPlayer2().getName());
 
         setCurrentPlayerName();
         updateBalanceView();
