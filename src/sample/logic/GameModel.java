@@ -1,6 +1,4 @@
-package sample.logic.game;
-
-import sample.logic.player.PlayerModel;
+package sample.logic;
 
 public class GameModel {
     private boolean gameOver;

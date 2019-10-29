@@ -4,10 +4,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import sample.logic.account.AccountModel;
-import sample.logic.die.DieModel;
-import sample.logic.game.GameModel;
-import sample.logic.player.PlayerModel;
+import sample.logic.AccountModel;
+import sample.logic.DieModel;
+import sample.logic.GameModel;
+import sample.logic.PlayerModel;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package sample.logic.account;
+package sample.logic;
 
 public class AccountModel {
     private int balance = 1000;
