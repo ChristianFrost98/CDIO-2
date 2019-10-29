@@ -12,10 +12,13 @@ public class AccountModel {
         this.player = player;
     }
 
+    public PlayerModel getPlayer(){
+        return player;
+    }
+
     public int getBalance() {
         return this.balance;
     }
-    public String getBalanceString() { return Integer.toString(this.balance); }
     public void addBalance(int balance){
         this.balance += balance;
         if(this.balance < 0) setBalance(0);
@@ -23,5 +26,11 @@ public class AccountModel {
     public void setBalance(int balance){
         this.balance = balance;
         if(this.balance < 0) this.balance = 0;
+    }
+
+    //Man kunne også bare kalde denne getBalanceToString da den ikke returnerer AccountModel men balancen.
+    @Override
+    public String toString() {
+        return Integer.toString(this.balance);
     }
 }

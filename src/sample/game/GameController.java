@@ -57,7 +57,6 @@ public class GameController {
     private Label currentPlayerLabel;
 
     private GameModel game;
-    private PlayerModel currentPlayer;
     private AccountModel currentAccount;
 
     public void throwDiceBtn(ActionEvent event) throws IOException {
@@ -143,34 +142,31 @@ public class GameController {
     public void GameController(PlayerModel p1,PlayerModel p2){
         game = new GameModel(p1, p2);
 
-        currentPlayer = game.p1;
         currentAccount = game.a1;
 
-        playerOneName.setText(game.p1.getName());
-        playerTwoName.setText(game.p2.getName());
+        playerOneName.setText(game.a1.getPlayer().getName());
+        playerTwoName.setText(game.a2.getPlayer().getName());
 
         setCurrentPlayerName();
         updateBalanceView();
     }
 
     private void updateBalanceView(){
-        playerOneMoney.setText(game.a1.getBalanceString());
-        playerTwoMoney.setText(game.a2.getBalanceString());
+        playerOneMoney.setText(game.a1.toString());
+        playerTwoMoney.setText(game.a2.toString());
         if (currentAccount.getBalance()>=3000){
-            resultatTekstFelt.setText("GAMEOVER...Vinderen er: " + currentPlayer.getName());
+            resultatTekstFelt.setText("GAMEOVER...Vinderen er: " + currentAccount.getPlayer().getName());
             game.endGame();
         }
     }
 
     private void setCurrentPlayerName(){
-        currentPlayerLabel.setText(currentPlayer.getName());
+        currentPlayerLabel.setText(currentAccount.getPlayer().getName());
     }
     private void setNextPlayer(){
-        if(currentPlayer.getId() == game.p1.getId()) {
-            currentPlayer = game.p2;
+        if(currentAccount.getPlayer().getId() == game.a1.getPlayer().getId()) {
             currentAccount = game.a2;
         } else {
-            currentPlayer = game.p1;
             currentAccount = game.a1;
         }
     }
